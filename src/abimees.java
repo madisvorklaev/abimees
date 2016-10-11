@@ -1,3 +1,5 @@
+
+
 public class abimees {
 
     public static void main(String[] args) {
@@ -6,6 +8,8 @@ public class abimees {
         readObject.openFile();
         readObject.readFile();
         readObject.closeFile();
+
+
 
     }
 }
