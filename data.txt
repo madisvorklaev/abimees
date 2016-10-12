@@ -1,3 +1,3 @@
-1 quantum 23
-2 viper 32
-3 aura 14
+1 quantum 2.3 23
+2 viper 3.2 32
+3 aura 1.4 14
