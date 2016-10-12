@@ -96,7 +96,7 @@ public class readfile {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("Records created successfully");
+      //  System.out.println("Records created successfully");
     }
 
     public static void getTable(){
@@ -105,7 +105,7 @@ public class readfile {
                 Connection c = null;
                 c = DriverManager.getConnection("jdbc:sqlite:devices.db");
                 c.setAutoCommit(false);
-                System.out.println("Opened database successfully");
+              //  System.out.println("Opened database successfully");
                 Statement stmt = null;
                 stmt = c.createStatement();
                 ResultSet rs = stmt.executeQuery( "SELECT * FROM DEVICES;" );
@@ -114,11 +114,11 @@ public class readfile {
                     String  name = rs.getString("name");
                     Double power  = rs.getDouble("power");
                     int  channels = rs.getInt("channels");
-                    System.out.println( "ID = " + id );
-                    System.out.println( "NAME = " + name );
+                    System.out.println( id +" "+ name );
+                   /* System.out.println( "NAME = " + name );
                     System.out.println( "POWER = " + power );
                     System.out.println( "CHANNELS = " + channels );
-                    System.out.println();
+                    System.out.println(); */
                 }
                 rs.close();
                 stmt.close();
@@ -127,8 +127,38 @@ public class readfile {
                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 System.exit(0);
             }
-            System.out.println("Operation done successfully");
+           // System.out.println("Operation done successfully");
         }
+
+     public static void getValues(int devNumber){
+             try {
+                 Class.forName("org.sqlite.JDBC");
+                 Connection c = null;
+                 c = DriverManager.getConnection("jdbc:sqlite:devices.db");
+                 c.setAutoCommit(false);
+                 //  System.out.println("Opened database successfully");
+                 Statement stmt = null;
+                 stmt = c.createStatement();
+                 ResultSet rs = stmt.executeQuery( "SELECT * FROM DEVICES;" );
+                 while ( rs.next() ) {
+                    int id = rs.getInt("id");
+                     String  name = rs.getString("name");
+                     Double power  = rs.getDouble("power");
+                     int  channels = rs.getInt("channels");System.out.println( id +" "+ name );
+                    System.out.println( "NAME = " + name );
+                    System.out.println( "POWER = " + power );
+                    System.out.println( "CHANNELS = " + channels );
+                    System.out.println();
+                 }
+                 rs.close();
+                 stmt.close();
+                 c.close();
+             } catch ( Exception e ) {
+                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+                 System.exit(0);
+             }
+             // System.out.println("Operation done successfully");
+     }
     }
 
 
