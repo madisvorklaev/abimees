@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class abimees {
 
     public static void main(String[] args) {
+        int devNumber = 0;
 
         readfile readObject = new readfile();
         readObject.createDatabase();
@@ -15,7 +16,7 @@ public class abimees {
 
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        int devNumber = Integer.valueOf(input);
+        devNumber = Integer.valueOf(input);
         readObject.getValues(devNumber);
 
 

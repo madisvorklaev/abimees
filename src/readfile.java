@@ -7,6 +7,7 @@ import java.util.*;
 
 public class readfile {
 
+
     public void createDatabase() {
         Connection c = null;
         Statement stmt = null;
@@ -141,15 +142,16 @@ public class readfile {
                  stmt = c.createStatement();
                  ResultSet rs = stmt.executeQuery( "SELECT * FROM DEVICES;" );
                  while ( rs.next() ) {
-                    int id = rs.getInt("id");
-                     String  name = rs.getString("name");
-                     Double power  = rs.getDouble("power");
-                     int  channels = rs.getInt("channels");System.out.println( id +" "+ name );
-                    System.out.println( "NAME = " + name );
-                    System.out.println( "POWER = " + power );
-                    System.out.println( "CHANNELS = " + channels );
-                    System.out.println();
-                 }
+                     if(devNumber == rs.getInt("id")){
+                        //int id = rs.getInt("id");
+                        String  name = rs.getString("name");
+                        Double power  = rs.getDouble("power");
+                        int  channels = rs.getInt("channels");
+                        System.out.println( "NAME = " + name );
+                        System.out.println( "POWER = " + power );
+                        System.out.println( "CHANNELS = " + channels );
+                        System.out.println();
+                    }}
                  rs.close();
                  stmt.close();
                  c.close();
