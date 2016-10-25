@@ -1,4 +1,4 @@
-1 quantum 2.3 23
+1 quantum 2.3 510
 2 viper 3.2 32
 3 aura 1.4 14
 4 sharpy 1.8 15
